@@ -1,10 +1,16 @@
-Weather Insights Dashboard
+# Weather Insights Dashboard
 
 A responsive, API-driven weather dashboard built with React that integrates live data from the Open-Meteo API.
 
-Live Demo (To Do)
+---
 
-Overview
+## 🌐 Live Demo
+
+🔗 https://cmi-eval-brian-s.vercel.app/
+
+---
+
+## 📌 Overview
 
 This project was built as part of the Programmer Analyst technical evaluation.
 
@@ -12,109 +18,129 @@ The goal was to design and implement a functional, interactive UI dashboard that
 
 I chose the Open-Meteo API because it provides structured, real-time weather data without requiring authentication, which allows the focus to remain on frontend architecture and product thinking rather than credential management.
 
-Features
+---
 
-Search by city (geocoding + forecast)
+## ✨ Features
 
-Current weather summary view
+- 🔍 Search by city (geocoding + forecast)
+- 🌡 Current weather summary view
+- 📈 7-day forecast chart
+- 🎛 Interactive metric toggle (temperature, precipitation, wind speed)
+- ⚠️ Error handling and empty states
+- ⏳ Loading states
+- 📱 Responsive layout (mobile + desktop)
+- 💾 LocalStorage persistence of selected metric
 
-7-day forecast chart
+---
 
-Interactive metric toggle (temperature, precipitation, wind)
+## 🏗 Architecture & Technical Decisions
 
-Error handling and empty states
+### Why React?
 
-Loading states
+- Component-based architecture
+- Clear separation of concerns
+- Scalable structure
+- Easy state management via hooks
 
-Responsive layout (mobile + desktop)
+### Project Structure
 
-LocalStorage persistence of selected metric
+```
+src/
+ ├── components/
+ ├── services/
+ ├── hooks/
+ ├── assets/
+ └── styles.css
+```
 
-Architecture & Technical Decisions
-Why React?
-
-Component-based architecture
-
-Clear separation of concerns
-
-Scalable structure
-
-Easy state management via hooks
-
-Project Structure
-
-services/ → API logic
-
-hooks/ → Business logic
-
-components/ → UI
-
-styles.css → Design system & layout
+- **services/** → API logic
+- **hooks/** → Business logic
+- **components/** → UI
+- **styles.css** → Design system & layout
 
 This separation prevents large, unmaintainable files and ensures future extensibility.
 
-Data Handling
+---
 
-All data is fetched live at runtime. No mock or hardcoded data is used.
+## 📊 Data Handling
+
+All data is fetched live at runtime from the Open-Meteo API. No mock or hardcoded data is used as stipulated.
 
 Error handling includes:
+- Network failure
+- Invalid city input
+- Empty API response
 
-Network failure
+Loading states are displayed while asynchronous requests are in progress.
 
-Invalid city input
+---
 
-Empty API response
+## 🚀 Deployment
 
-How to Run Locally
-git clone https://github.com/your-repo/weather-dashboard.git
-cd weather-dashboard
+This application is deployed via Vercel with automatic builds triggered on push to the `master` branch.
+
+Build configuration:
+
+- **Framework:** Vite
+- **Build Command:** `npm run build`
+- **Output Directory:** `dist`
+
+---
+
+## 🛠 How to Run Locally
+
+```bash
+git clone https://github.com/brianStewart1993/CMIEvalBrianS.git
+cd CMIEval
 npm install
 npm run dev
+```
 
-Open http://localhost:5173
+Open:
 
-Known Limitations
+```
+http://localhost:5173
+```
 
-No server-side caching
+---
 
-No offline support
+## ⚙️ Known Limitations
 
-Limited accessibility testing
+- No server-side caching
+- No offline support
+- Limited accessibility testing
+- No debounced search input
+- No historical weather comparison
 
-No debounced search input
+---
 
-If I Had More Time
+## 🔮 If I Had More Time
 
-Add dark mode
+- Add dark mode
+- Improve accessibility (ARIA labels, semantic enhancements)
+- Add integration and E2E tests
+- Add request caching
+- Add multi-city comparison view
+- Implement loading skeleton UI
+- Add unit tests
 
-Improve accessibility (ARIA labels, semantic enhancements)
+---
 
-Add unit and integration tests
+## ✅ Evaluation Criteria Checklist
 
-Add loading skeletons
+- ✔ Live API integration
+- ✔ Two distinct data views
+- ✔ Interactive control
+- ✔ Error handling
+- ✔ Responsive layout
+- ✔ Clean architecture
+- ✔ Maintainable code
+- ✔ Production deployment
 
-Implement request caching
+---
 
-Add E2E tests
-
-Evaluation Criteria Checklist
-
-Live API integration
-
-Two distinct data views
-
-Interactive control
-
-Error handling
-
-Responsive layout
-
-Clean architecture
-
-Maintainable code
-
-Final Notes
+## 🧠 Final Notes
 
 This project prioritizes clarity, maintainability, and deliberate UI decisions over unnecessary complexity.
 
-The architecture is designed so that additional views (historical weather, comparison mode, multi-city tracking) could be added without major restructuring.
+The architecture is designed so that additional features (historical data, multi-city tracking, comparison dashboards) could be added without major restructuring.
