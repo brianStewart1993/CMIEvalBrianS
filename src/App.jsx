@@ -1,35 +1,38 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import SearchBar from "./components/SearchBar";
+import CurrentWeatherCard from "./components/CurrentWeatherCard";
+import ForecastChart from "./components/ForecastChart";
+import ErrorState from "./components/ErrorState";
+import LoadingSpinner from "./components/LoadingSpinner";
+import { useWeather } from "./hooks/useWeather";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const { weather, cityName, loading, error, fetchWeather } = useWeather();
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+    <div className="app-container">
+      <div className="header">
+        <h1>Weather Insights Dashboard</h1>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+      <SearchBar onSearch={fetchWeather} />
+
+      {loading && <div className="loading">Loading weather data...</div>}
+      {error && <ErrorState message={error} />}
+
+      {weather && (
+        <div className="dashboard-grid">
+          <CurrentWeatherCard weather={weather} city={cityName} />
+          <ForecastChart weather={weather} />
+        </div>
+      )}
+  </div>
+  );
 }
 
-export default App
+const containerStyle = {
+  maxWidth: "800px",
+  margin: "0 auto",
+  padding: "1rem",
+};
+
+export default App;

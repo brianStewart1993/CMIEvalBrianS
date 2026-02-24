@@ -1,16 +1,120 @@
-# React + Vite
+Weather Insights Dashboard
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive, API-driven weather dashboard built with React that integrates live data from the Open-Meteo API.
 
-Currently, two official plugins are available:
+Live Demo (To Do)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Overview
 
-## React Compiler
+This project was built as part of the Programmer Analyst technical evaluation.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The goal was to design and implement a functional, interactive UI dashboard that consumes data from a public API and presents it in a meaningful way.
 
-## Expanding the ESLint configuration
+I chose the Open-Meteo API because it provides structured, real-time weather data without requiring authentication, which allows the focus to remain on frontend architecture and product thinking rather than credential management.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Features
+
+Search by city (geocoding + forecast)
+
+Current weather summary view
+
+7-day forecast chart
+
+Interactive metric toggle (temperature, precipitation, wind)
+
+Error handling and empty states
+
+Loading states
+
+Responsive layout (mobile + desktop)
+
+LocalStorage persistence of selected metric
+
+Architecture & Technical Decisions
+Why React?
+
+Component-based architecture
+
+Clear separation of concerns
+
+Scalable structure
+
+Easy state management via hooks
+
+Project Structure
+
+services/ → API logic
+
+hooks/ → Business logic
+
+components/ → UI
+
+styles.css → Design system & layout
+
+This separation prevents large, unmaintainable files and ensures future extensibility.
+
+Data Handling
+
+All data is fetched live at runtime. No mock or hardcoded data is used.
+
+Error handling includes:
+
+Network failure
+
+Invalid city input
+
+Empty API response
+
+How to Run Locally
+git clone https://github.com/your-repo/weather-dashboard.git
+cd weather-dashboard
+npm install
+npm run dev
+
+Open http://localhost:5173
+
+Known Limitations
+
+No server-side caching
+
+No offline support
+
+Limited accessibility testing
+
+No debounced search input
+
+If I Had More Time
+
+Add dark mode
+
+Improve accessibility (ARIA labels, semantic enhancements)
+
+Add unit and integration tests
+
+Add loading skeletons
+
+Implement request caching
+
+Add E2E tests
+
+Evaluation Criteria Checklist
+
+Live API integration
+
+Two distinct data views
+
+Interactive control
+
+Error handling
+
+Responsive layout
+
+Clean architecture
+
+Maintainable code
+
+Final Notes
+
+This project prioritizes clarity, maintainability, and deliberate UI decisions over unnecessary complexity.
+
+The architecture is designed so that additional views (historical weather, comparison mode, multi-city tracking) could be added without major restructuring.

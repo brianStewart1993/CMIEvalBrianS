@@ -1,0 +1,4 @@
+// src/components/LoadingSpinner.jsx
+export default function LoadingSpinner() {
+  return <p>Loading...</p>;
+}
